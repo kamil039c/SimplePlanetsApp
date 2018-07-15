@@ -1,0 +1,145 @@
+[
+	{
+		"name": "Ziemia", 
+		"rotation_period": "24", 
+		"orbital_period": "365", 
+		"diameter": "12550", 
+		"climate": "temperate", 
+		"gravity": "1 standard", 
+		"terrain": "grasslands, mountains, water", 
+		"surface_water": "75", 
+		"population": "7000000000"
+	},
+	{
+		"name": "Mars", 
+		"rotation_period": "25", 
+		"orbital_period": "700", 
+		"diameter": "6787", 
+		"climate": "cold", 
+		"gravity": "0.5 G", 
+		"terrain": "sand, stones", 
+		"surface_water": "0.001", 
+		"population": "80000"
+	},
+	{
+		"name": "Jowisz", 
+		"rotation_period": "10", 
+		"orbital_period": "4332", 
+		"diameter": "142984", 
+		"climate": "unfit to life", 
+		"gravity": "2.530 G", 
+		"terrain": "hydrogenium, helium", 
+		"surface_water": "0", 
+		"population": "0" 
+	},
+	{
+		"name": "Saturn", 
+		"rotation_period": "11", 
+		"orbital_period": "10753", 
+		"diameter": "120536", 
+		"climate": "unfit to life", 
+		"gravity": "0.916 G", 
+		"terrain": "hydrogenium, helium", 
+		"surface_water": "0", 
+		"population": "0"
+	},
+	{
+		"name": "Uran", 
+		"rotation_period": "17", 
+		"orbital_period": "30685", 
+		"diameter": "51118", 
+		"climate": "unfit to life", 
+		"gravity": "0.9 G", 
+		"terrain": "hydrogenium, helium", 
+		"surface_water": "0", 
+		"population": "0"
+	},
+	{
+		"name": "Neptun", 
+		"rotation_period": "16", 
+		"orbital_period": "60189", 
+		"diameter": "50538", 
+		"climate": "unfit to life", 
+		"gravity": "1.14 G", 
+		"terrain": "hydrogenium, helium", 
+		"surface_water": "0", 
+		"population": "0"
+	},
+	{
+		"name": "Wenus", 
+		"rotation_period": "243", 
+		"orbital_period": "224", 
+		"diameter": "12102", 
+		"climate": "hot", 
+		"gravity": "0.907 G", 
+		"terrain": "Nitrogenium, CO2", 
+		"surface_water": "0", 
+		"population": "4000" 
+	},
+	{
+		"name": "Merkury", 
+		"rotation_period": "58", 
+		"orbital_period": "93", 
+		"diameter": "5000", 
+		"climate": "unfit to life", 
+		"gravity": "0.378 G standard", 
+		"terrain": "natrium, oxygenium", 
+		"surface_water": "0", 
+		"population": "unknown"
+	},
+	{
+		"name": "Dione", 
+		"rotation_period": "13", 
+		"orbital_period": "744", 
+		"diameter": "12766", 
+		"climate": "unfit to life", 
+		"gravity": "1.6 standard", 
+		"terrain": "toxic chemicals, oceans", 
+		"surface_water": "44", 
+		"population": "unknown"
+	},
+	{
+		"name": "Theta", 
+		"rotation_period": "44", 
+		"orbital_period": "644", 
+		"diameter": "44332", 
+		"climate": "temperate hot", 
+		"gravity": "1.24 standard", 
+		"terrain": "rivers, mountains, sand", 
+		"surface_water": "4", 
+		"population": "999888777"
+	},
+	{
+		"name": "Rhea", 
+		"rotation_period": "32", 
+		"orbital_period": "1445", 
+		"diameter": "17433", 
+		"climate": "temperate", 
+		"gravity": "1 standard", 
+		"terrain": "grasslands, mountains, water", 
+		"surface_water": "75", 
+		"population": "660999000"
+	},
+	{
+		"name": "Cassini", 
+		"rotation_period": "49", 
+		"orbital_period": "1077", 
+		"diameter": "4328", 
+		"climate": "cold", 
+		"gravity": "0.5 standard", 
+		"terrain": "grass, jungle, ice", 
+		"surface_water": "62", 
+		"population": "100000000" 
+	},
+	{
+		"name": "Prometeusz", 
+		"rotation_period": "22", 
+		"orbital_period": "4219", 
+		"diameter": "18553", 
+		"climate": "cold", 
+		"gravity": "1 standard", 
+		"terrain": "ice, mountains, helium", 
+		"surface_water": "34", 
+		"population": "300000000"
+	}
+]

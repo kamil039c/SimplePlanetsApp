@@ -1,0 +1,125 @@
+<ng-container *ngIf="pageLoadState != 0">
+  <ng-template #modalDialogContent let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-dialog-content">Brakujące dane</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('zamknij')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Musisz uzupełnić wszytkie pola
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c('zamknij')">Zamknij okno</button>
+    </div>
+  </ng-template>
+
+  <ng-template #modalPlanetInfoContent let-dd="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-planet-infos">Informacje o planecie {{ infoPlanet.name }}</h4>
+        <button type="button" class="btn btn-outline-dark" (click)="dd('zamknij')">Powrót</button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered table-striped">
+          <tr>
+            <td>Średnica: </td>
+            <td>{{ infoPlanet.diameter }} km</td>
+          </tr>
+          <tr>
+            <td>Grawitacja: </td>
+            <td>{{ infoPlanet.gravity }}</td>
+          </tr>
+          <tr>
+            <td>Czas obiegu: </td>
+            <td>{{ infoPlanet.rotationPeriod }} Dni</td>
+          </tr>
+          <tr>
+            <td>Czas obrotu: </td>
+            <td>{{ infoPlanet.orbitalPeriod }} Godzin</td>
+          </tr>
+          <tr>
+            <td>Klimat: </td>
+            <td>{{ infoPlanet.climate }}</td>
+          </tr>
+          <tr>
+            <td>Powierzchnia wody: </td>
+            <td>{{ infoPlanet.surfaceWater }} %</td>
+          </tr>
+          <tr>
+            <td>Dominujący skład: </td>
+            <td>{{ infoPlanet.terrain }}</td>
+          </tr>
+          <tr>
+            <td>Populacja: </td>
+            <td>{{ infoPlanet.population }}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+          <img style="width: 50%; margin: 0 auto;" class="rounded" src="/assets/img/planet.jpg">
+      </div>
+    </ng-template>
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top" style="border-bottom: 1px solid #909090; position: fixed;">
+    <a class="navbar-brand text-light" href="#">Lista planet</a>
+    <button class="navbar-toggler bg-info" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      </ul>
+      <form class="form-inline my-2 my-lg-0 float-right" (ngSubmit)="searchPlanetsSetFilter(modalDialogContent, nameFilter.value)" #spfForm="ngForm">
+          <input class="form-control mr-sm-2" style="background-color: rgb(160, 180, 170);" type="search" placeholder="Szukana nazwa" aria-label="Search" #nameFilter>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Szukaj planet</button>
+      </form>
+    </div>
+  </nav>
+
+  <div class="vertical-center">
+    <div class="container main_round_box">
+        <div class="row" style="padding: 5px 0px 5px 0px;" *ngIf="pageLoadState === 2">
+            <div class="col-sm-12">
+              <p class="navbar-brand text-warning">Nie można otwożyć oryginalnej listy planet! Wczytano alternatywną listę.</p>
+            </div>
+        </div>
+
+        <div class="row" style="padding: 5px 0px 5px 0px;">
+            <div class="col-sm-6">
+              <ng-container *ngIf="searchPlanetsFilter.length != 0">
+                <p class="navbar-brand text-light">Bierzący filtr nazw: {{ searchPlanetsFilter }}</p>
+                <a class="navbar-brand text-light" href="#" (click)="searchPlanetResetFilter()"><img style="width: 32px; height: 32px; " src="/assets/img/close.png"></a>
+              </ng-container>
+            </div>
+            <div class="col-sm-6 text-right">
+                <p class="navbar-brand text-light">Wyników na stronę: </p>
+                <ng-container *ngFor="let option of planetsPerPageOptions">
+                  <a class="navbar-brand {{ option == planetsPerPage ? 'text-warning' : 'text-light' }}" href="#" (click)="setPlanetsCountPerPage(option)">{{ option }}</a>
+                </ng-container>
+            </div>
+        </div>
+
+        <div class="row" style="padding: 5px 0px 5px 0px;" *ngIf="planetsPages.length > 0">
+          <div class="col-sm-12">
+            <button *ngFor="let page of planetsPages" style="margin: 3px;" type="button" class="btn {{ page - 1 === planetsActualPage ? 'btn-primary' : 'btn-info'}}" (click)="setPage(page)">{{ page }}</button>
+          </div>
+        </div>
+
+        <div class="card-columns">
+          <div class="card text-white" *ngFor="let planet of displayPlanets" style="background-color: rgba(0, 88, 88, 0.5)">
+            <img class="card-img-top" src="/assets/img/planet.jpg">
+            <div class="card-header"><b>{{ planet.name }}</b></div>
+            <div class="card-body">
+                <p class="card-text">Średnica: {{ planet.diameter }}</p>
+                <p class="card-text">Grawitacja: {{ planet.gravityShort }}</p>
+                <p class="card-text">Czas obiegu: {{ planet.orbitalPeriod }}</p>
+            </div>
+            <div class="card-footer">
+              <button type="button" class="btn btn-outline-success product_order" (click)="showPlanetInfos(modalPlanetInfoContent ,planet)">Więcej informacji</button>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</ng-container>
